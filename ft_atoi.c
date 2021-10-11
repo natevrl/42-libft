@@ -30,4 +30,3 @@ int main()
 	printf("%d\n", ft_atoi(str));
 	return 0;
 }
-#include libft.h

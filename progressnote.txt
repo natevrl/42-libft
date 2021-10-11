@@ -14,17 +14,19 @@ ft_memcpy
 ft_memmove
 ft_strlcpy
 ft_strlcat
-ft_toupper		
-ft_tolower		
+ft_toupper		DONE
+ft_tolower		DONE
 ft_strchr
 ft_strrchr
-ft_strncmp
+ft_strncmp		DONE
 ft_memchr
 ft_memcmp
+ft_strcmp		DONE
 ft_strnstr
-ft_atoi		
+ft_atoi		DONE		
 ft_calloc
 ft_strdup		
+
 PARTIE 2
 ft_substr		
 ft_strjoin		
@@ -37,6 +39,7 @@ ft_putchar_fd
 ft_putstr_fd	
 ft_putendl_fd	
 ft_putnbr_fd	
+
 BONUS
 ft_lstnew
 ft_lstadd_front
