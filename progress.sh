@@ -26,3 +26,4 @@ progressbar "${NBRDONE}" "$PERCENT"
 echo "			   ${NBRDONE}/43 Done"
 echo "-- ${DIFF} tasks  remaining ! --"
 
+printf "\n"
