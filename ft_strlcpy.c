@@ -1,19 +1,10 @@
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
+#include <bsd/string.h>
+#include <bsd/stdio.h>
 
 
 // take the full size of the buffer (not just the length)
 // guarantee to NUL-terminate the result
-size_t ft_strlen(const char *s)
-{
-	size_t i;
-
-	i = 0;
-	while (s[i])
-	    i++;
-	return (i);
-}
 
 size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {

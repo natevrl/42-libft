@@ -12,8 +12,8 @@ ft_memset
 ft_bzero		
 ft_memcpy		
 ft_memmove
-ft_strlcpy
-ft_strlcat
+ft_strlcpy		DONE
+ft_strlcat		DONE
 ft_toupper		DONE
 ft_tolower		DONE
 ft_strchr
@@ -23,7 +23,7 @@ ft_memchr
 ft_memcmp
 ft_strcmp		DONE
 ft_strnstr
-ft_atoi		DONE		
+ft_atoi			DONE		
 ft_calloc
 ft_strdup		
 
