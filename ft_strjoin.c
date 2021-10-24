@@ -13,8 +13,8 @@ char *ft_strjoin(char const *s1, char const *s2)
 {
 	int y;
 	int i;
-	char *join;
 	int total_size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	char *join;
 	
 	join = malloc(sizeof(char const) * total_size);
 	if (join == NULL)

@@ -9,8 +9,8 @@ ft_isascii		DONE
 ft_isprint		DONE
 ft_strlen		DONE
 ft_memset		
-ft_bzero		
-ft_memcpy		
+ft_bzero		DONE	
+ft_memcpy		DONE	
 ft_memmove
 ft_strlcpy		DONE
 ft_strlcat		DONE
@@ -23,13 +23,13 @@ ft_memchr
 ft_memcmp
 ft_strcmp		DONE
 ft_strnstr
-ft_atoi			DONE		
+ft_atoi		DONE		
 ft_calloc
 ft_strdup		
 
 PARTIE 2
-ft_substr		
-ft_strjoin		
+ft_substr	DONE	
+ft_strjoin	DONE	
 ft_strtrim		
 ft_split		
 ft_itoa		
