@@ -1,13 +1,14 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int ftstrlen(char *str)
+int ftstrlen(char const *str)
 {
 	int i = 0;
 	while (str[i])
 		i++;	
 	return i;
 }
+
 int isincharset(char c)
 {
 		if (c == ' ' || c == '\n' || c == '\t')
@@ -15,7 +16,7 @@ int isincharset(char c)
 	return 0;
 }
 
-char *ftcpy(char *str, int debut, int fin)
+char *ftcpy(char const *str, int debut, int fin)
 {
 	int i = 0;
 	int taille = fin - debut;
@@ -32,7 +33,7 @@ char *ftcpy(char *str, int debut, int fin)
 	return tab ;
 }
 
-char **ft_split(char *str)
+char **ft_split(char const *s, char c)
 {
 	int i;
 	int f;
@@ -45,22 +46,22 @@ char **ft_split(char *str)
 	i = 0;
 	f = 0;
 	charset_end = 0;
-	if (isincharset(str[i]))
+	if (c = s[i])
 		f = -1;
-	while(str[i])
+	while(s[i])
 	{
-		if (i == ftstrlen(str) - 1)
-			tab[f] = ftcpy(str, charset_end, i + 1);
+		if (i == ftstrlen(s) - 1)
+			tab[f] = ftcpy(s, charset_end, i + 1);
 		j = 0;
-		if (isincharset(str[i]))
+		if (c == s[i])
 		{
-			while (isincharset(str[i]))
+			while (c == s[i])
 			{
 				i++;
 				j++;
 			}
 			before_charset = i - j;
-			tab[f] = ftcpy(str, charset_end, before_charset);
+			tab[f] = ftcpy(s, charset_end, before_charset);
 			charset_end = i;
 			f++;
 			i--;
@@ -68,16 +69,18 @@ char **ft_split(char *str)
 		i++;
 	}
 	tab[f + 1] = 0;
-	return tab;
+	return (tab);
 }
 
 #include <stdio.h>
 int main()
 {
-	char str[] = "					\t123\nawdawd     \t123456789";
+	char str[] = "awdawd1awdawdawdawwwww";
 
 	int i = 0;
-	char **res = ft_split(str);
+	char **res = ft_split(str, 'a');
+
+	printf("%s\n", str);
 	while (res[i])
 	{
 		printf("tab[%d]; %s\n", i, res[i]);
