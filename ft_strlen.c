@@ -10,9 +10,3 @@ size_t ft_strlen(const char *s)
 	    i++;
 	return (i);
 }
-#include <stdio.h>
-int main()
-{
-	const char s[] = "teste";
-	printf("%d", ft_strlen(s));
-}
