@@ -1,10 +1,20 @@
 #include "libft.h"
 #include <stdlib.h>
 
-/*`void *calloc( size_t elementCount, size_t elementSize )
+void *ft_calloc( size_t elementCount, size_t elementSize )
 {
+	int i;
+	char *block;
 
-}*/
+	block = malloc(elementSize * elementCount)
+
+	i = 0;
+	while (i < elementCount)
+	{
+		block[i] = 0;
+		i++;
+	}
+}
 
 #include <stdio.h>          
 #include <stdlib.h>
