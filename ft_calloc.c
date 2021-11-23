@@ -6,14 +6,16 @@ void *ft_calloc( size_t elementCount, size_t elementSize )
 	int i;
 	char *block;
 
-	block = malloc(elementSize * elementCount)
-
+	block = malloc(elementSize * elementCount);
+	if (!block)
+		return ("NULL");
 	i = 0;
 	while (i < elementCount)
 	{
-		block[i] = 0;
+		block[i] = '\0';
 		i++;
 	}
+	return (block);
 }
 
 #include <stdio.h>          
@@ -25,7 +27,7 @@ void *ft_calloc( size_t elementCount, size_t elementSize )
 int main() {
     
     int i;
-    int * pointer = (int *) calloc( INT_NUMBER, sizeof(int) );
+    int * pointer = (int *) ft_calloc( INT_NUMBER, sizeof(int) );
 
     /* Un petit test sur le bon fonctionnement de calloc */
     assert( pointer != NULL );
@@ -49,4 +51,3 @@ int main() {
 
     return 0;
 }
-
