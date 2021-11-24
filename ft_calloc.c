@@ -27,7 +27,7 @@ void *ft_calloc( size_t elementCount, size_t elementSize )
 int main() {
     
     int i;
-    int * pointer = (int *) ft_calloc( INT_NUMBER, sizeof(int) );
+    int * pointer = (int *) calloc( INT_NUMBER, sizeof(int) );
 
     /* Un petit test sur le bon fonctionnement de calloc */
     assert( pointer != NULL );
