@@ -3,42 +3,43 @@
 
 void *ft_memmove(void *dst, const void *src, size_t n)
 {
-	if (!dst && !src)
-		return (NULL);
-	if (n == 0)
-		return (dst);
-}
+	size_t i;
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
 	if (!dst && !src)
 		return (NULL);
 	if (n == 0)
 		return (dst);
-	while (n)
+	i = 0;
+	if (dst > src)
 	{
-		((char*)dst)[n - 1] = ((const char*)src)[n - 1];
-		n--;
+		while (n > 0)
+		{
+
+			n--;
+			((char *)dst)[n] = ((char *)src)[n];
+		}
 	}
+	else
+		while (i < n)
+		{
+			((char *)dst)[n] = ((char *)src)[n];
+			i++;
+		}
 	return (dst);
 }
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define ELEMENT_COUNT 10
 
 int main()
 {
-	char str[100] = "jour";
+	char src[100] = "jour";
 	char dest[100] = "bonjour";
-	char str3[100] = "jour";
-	char dest3[100] = "bonjour";
-	printf("ft_memcpy : %s\n", ft_memcpy(dest, str, 10));
-	char str2[100] = "jour";
+	char src2[100] = "jour";
 	char dest2[100] = "bonjour";
-	printf("memcpy : %s\n", memcpy(dest, str, 10));
+	printf("ft_memmove : %s\n", ft_memmove(dest, src, 10));
+	printf("memmove : %s\n", memmove(dest2, src2, 10));
 
     return EXIT_SUCCESS;
 }

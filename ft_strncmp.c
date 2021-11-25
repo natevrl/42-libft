@@ -1,47 +1,27 @@
 #include "libft.h"
 #include <string.h>
 
-/*int ft_strncmp(const char *s1, const char *s2, size_t n)
 
-{
-	size_t i;
-
-	i = 0;
-	if (n < 1)
-		return (0);
-	else if (n == 1)
-		return (*s1 - *s2);
-	if (*s1 == '\0' && *s2 == '\0')
-		return (0);
-	while ( (s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i] && n != i)
-		i++;
-	return (s1[i] - s2[i]);
-}*/
 int ft_strncmp(const char *s1, const char *s2, size_t n)
 
 {
 	size_t	i;
 
-	i = 1;
+	i = 0;
 	if (n == 0)
 		return (0);
 	else if (n == 1)
 		return (*s1 - *s2);
-	if (*s1 == '\0' && *s2 == '\0')
+	if (*s1 == 0 && *s2 == 0)
 		return (0);
-	while (i <= n || *s1)
+	while (i < n && *s1 == *s2)
 	{
-		if (*s1 == *s2)
-		{
-			if (i == n)
-				break ;
 			s1++;
 			s2++;
 			i++;
-		}
-		else
-			break ;
 	}
+	if (i == n)
+		return (0);
 	return (*s1 - *s2);
 }
 
@@ -49,8 +29,8 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	main(void)
 {
-	char s1[] = "eeee";
-	char s2[] = "eee";
+	char s1[] = "";
+	char s2[] = "";
 	char s3[] = "Same";
 	char s4[] = "Size";
 	char s5[] = "Shorter";
@@ -66,4 +46,5 @@ int	main(void)
 	printf("%d, %d\n", ft_strncmp(s5, s5, 5), strncmp(s5, s5, 5));
 	printf("%d, %d\n", ft_strncmp(s5, s7, 7), strncmp(s5, s7, 7));
 	printf("%d, %d\n", ft_strncmp(s5, s7, 9), strncmp(s5, s7, 9));
+	printf("%d\n", sizeof(int));
 }
