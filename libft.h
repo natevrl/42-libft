@@ -5,6 +5,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 size_t ft_strlen(const char *s);
 
@@ -36,6 +37,12 @@ void ft_putstr_fd(char *s, int fd);
 void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 
+// Structure pour les bonus
+typedef struct s_list
+{
+	void *content;
+	struct s_list *next;
+} t_list;
 
 #endif
 
