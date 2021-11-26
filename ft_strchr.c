@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:21:42 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 17:50:50 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <string.h>
 
-
-char *ft_strchr(const char *string, int searchedChar)
+char	*ft_strchr(const char *string, int searchedChar)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (string[i])
@@ -14,15 +24,4 @@ char *ft_strchr(const char *string, int searchedChar)
 		i++;
 	}
 	return (NULL);
-}
-#include <stdio.h>
-int main()
-{
-	char str[] = "tet111s";
-	char str2[] = "tet111s";
-	int f = 's';
-	int f2 = 's';
-	printf("%s\n", ft_strchr(str, f));
-	printf("%s\n", strchr(str2, f2));
-	return (0);
 }

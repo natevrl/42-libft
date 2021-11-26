@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:22:19 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 17:51:04 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
@@ -23,14 +35,4 @@ static int	ft_cmp(char	*s1, char	*s2)
 			break ;
 	}
 	return (*s1 - *s2);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char *strs[2] = {"bbbbb", "z"};
-
-	printf("%d\n", ft_strcmp(strs[0], strs[1]));
-	printf("%d\n", ft_cmp(strs[0], strs[1]));
 }

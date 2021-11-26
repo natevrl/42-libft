@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:09:16 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 16:10:28 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *nptr)
@@ -21,12 +33,4 @@ int	ft_atoi(const char *nptr)
 	while (nptr[++i] >= '0' && nptr[i] <= '9')
 		result = result * 10 + nptr[i] - '0';
 	return (result * negatif);
-}
-
-#include <stdio.h>
-int main()
-{
-	char str[] = "148";
-	printf("%d\n", ft_atoi(str));
-	return 0;
 }

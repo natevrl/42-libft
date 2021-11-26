@@ -1,21 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:34:26 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 17:57:47 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <string.h>
-#include <stddef.h>
 
-size_t ft_strlen(const char *s)
+char	*ft_strrchr(const char *string, int searchedChar)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i])
-	    i++;
-	return (i);
-}
-
-
-char *ft_strrchr(const char *string, int searchedChar)
-{
-	int max;
+	int	max;
 
 	max = ft_strlen(string) - 1;
 	while (string[max])
@@ -26,15 +25,3 @@ char *ft_strrchr(const char *string, int searchedChar)
 	}
 	return (NULL);
 }
-#include <stdio.h>
-int main()
-{
-	char str[] = "tet111s";
-	char str2[] = "tet111s";
-	int f = 'e';
-	int f2 = 'e';
-	printf("%s\n", ft_strrchr(str, f));
-	printf("%s\n", strrchr(str2, f2));
-	return (0);
-}
-

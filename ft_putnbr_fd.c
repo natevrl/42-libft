@@ -1,7 +1,18 @@
-#include "libft.h"
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:19:58 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 17:43:00 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putnbr_fd(int n, int fd)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 	{
@@ -21,6 +32,6 @@ void ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		write(fd, n + 48 , 1);
+		write(fd, n + 48, 1);
 	}
 }

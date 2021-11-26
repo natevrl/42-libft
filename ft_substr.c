@@ -1,20 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:35:08 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 18:00:40 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <string.h>
-#include <stdlib.h>
 
-size_t ft_strlen(char const *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int i = 0;
-	while (str[i])
-		i++;
-	return i;
-}
+	size_t	i;
+	char	*new_str;
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t i;
-	char *new_str;
-	
 	if (!s)
 		return (NULL);
 	if (start > ft_strlen(s))
@@ -36,12 +38,4 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	new_str[i] = '\0';
 	return (new_str);
-}
-
-#include <stdio.h>
-int main()
-{
-	char s[] = "123456";
-	printf("%s\n", ft_substr(s, 6, 8));
-
 }

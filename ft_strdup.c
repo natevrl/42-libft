@@ -1,12 +1,23 @@
-#include "libft.h"
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:25:00 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 17:52:04 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *strdup(const char *src)
+#include "libft.h"
+
+char	*ft_strdup(const char *src)
 
 {
-	int i;
-	int max;
-	char *dest;
+	int		i;
+	int		max;
+	char	*dest;
 
 	i = 0;
 	max = 0;
@@ -21,14 +32,5 @@ char *strdup(const char *src)
 		i++;
 	}
 	dest[i] = '\0';
-	return (dest) ;
+	return (dest);
 }
-
-
-#include <stdio.h>
-int main()
-{
-	char src[] = "12345";
-	printf("%s\n", ft_strdup(src));
-}
-

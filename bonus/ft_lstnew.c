@@ -22,10 +22,10 @@ t_list *ft_lstnew(void *content)
 
 int main()
 {
-	t_list elem1;
+	t_list *elem1;
 
 	elem1 = ft_lstnew("test");
-
+	printf("%s%p\n", elem1->content, elem1->next);
 
 	return (0);
 }

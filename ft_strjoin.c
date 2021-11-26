@@ -1,14 +1,25 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:25:12 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 17:53:29 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int y;
-	int i;
-	int total_size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	char *join;
-	
+	int		y;
+	int		i;
+	int		total_size;
+	char	*join;
+
+	total_size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	join = malloc(sizeof(char const) * total_size);
 	if (join == NULL)
 		return (NULL);
@@ -27,13 +38,4 @@ char *ft_strjoin(char const *s1, char const *s2)
 	}
 	join[i] = '\0';
 	return (join);
-}
-
-
-#include <stdio.h>
-int	main()
-{
-	char str1[] = "teste"; 
-	char str2[] = "123";
-	printf("%s\n", ft_strjoin(str1, str2));
 }

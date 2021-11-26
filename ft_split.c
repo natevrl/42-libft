@@ -1,28 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 16:20:16 by nbenhado          #+#    #+#             */
+/*   Updated: 2021/11/26 18:14:21 by nbenhado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdlib.h>
 
-int ftstrlen(char const *str)
+static int	is_in_charset(char c, char *charset)
 {
-	int i = 0;
-	while (str[i])
-		i++;	
-	return i;
+	int	i;
+
+	i = 0;
+	while (charset[i])
+	{
+		if (c == charset[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int isincharset(char c)
+static char	*ft_cpy(char *str, int fin, int debut)
 {
-		if (c == ' ' || c == '\n' || c == '\t')
-			return 1;
-	return 0;
-}
+	int		taille;
+	int		i;
+	char	*tab;
 
-char *ftcpy(char const *str, int debut, int fin)
-{
-	int i = 0;
-	int taille = fin - debut;
-	char *tab;
-
-	tab = malloc(sizeof(int) * taille + 1);
+	i = 0;
+	taille = fin - debut;
+	tab = malloc(taille * sizeof(char) + 1);
+	if (!tab)
+		return (NULL);
 	while (debut < fin)
 	{
 		tab[i] = str[debut];
@@ -30,61 +44,41 @@ char *ftcpy(char const *str, int debut, int fin)
 		i++;
 	}
 	tab[i] = '\0';
-	return tab ;
-}
-
-char **ft_split(char const *s, char c)
-{
-	int i;
-	int f;
-	int j;
-	int charset_end;
-	int before_charset;
-	char **tab;
-
-	tab = (char **)malloc(sizeof(char *) * 256);
-	i = 0;
-	f = 0;
-	charset_end = 0;
-	if (c = s[i])
-		f = -1;
-	while(s[i])
-	{
-		if (i == ftstrlen(s) - 1)
-			tab[f] = ftcpy(s, charset_end, i + 1);
-		j = 0;
-		if (c == s[i])
-		{
-			while (c == s[i])
-			{
-				i++;
-				j++;
-			}
-			before_charset = i - j;
-			tab[f] = ftcpy(s, charset_end, before_charset);
-			charset_end = i;
-			f++;
-			i--;
-		}
-		i++;
-	}
-	tab[f + 1] = 0;
 	return (tab);
 }
 
-#include <stdio.h>
-int main()
+static void	init_var(int *i, int *f, int *charset_end)
 {
-	char str[] = "awdawd1awdawdawdawwwww";
-
-	int i = 0;
-	char **res = ft_split(str, 'a');
-
-	printf("%s\n", str);
-	while (res[i])
-	{
-		printf("tab[%d]; %s\n", i, res[i]);
-		i++;
-	}
+	*i = -1;
+	*f = 0;
+	*charset_end = 0;
 }
 
+// tab[0] = i, tab[1] = stack, tab[2] = charset_end, tab[3] = j
+char	**ft_split(char const *s, char c)
+{
+	int		tab[4];
+	char	**tab_de_tab;
+
+	init_var(&tab[0], &tab[1], &tab[2]);
+	tab_de_tab = malloc(100 * sizeof(char *));
+	if (!tab_de_tab)
+		return (NULL);
+	if (is_in_charset(s[0], c))
+		tab[1] = -1;
+	while (s[++tab[0]])
+	{
+		if (tab[0] == ft_strlen(s) - 1)
+			tab_de_tab[tab[1]] = ft_cpy(s, tab[0] + 1, tab[2]);
+		tab[3] = 0;
+		if (is_in_charset(s[tab[0]], c))
+		{
+			while (is_in_charset(s[++tab[0]], c))
+				tab[3]++;
+			tab_de_tab[tab[1]++] = ft_cpy(s, (tab[0] - 1) - tab[3], tab[2]);
+			tab[2] = tab[0]--;
+		}
+	}
+	tab_de_tab[tab[1] + 1] = 0;
+	return (tab_de_tab);
+}
