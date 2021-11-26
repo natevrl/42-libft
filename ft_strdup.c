@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:25:00 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 17:52:04 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/26 20:28:27 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *src)
 	max = 0;
 	while (src[max])
 		max++;
-	dest = (char *)malloc(sizeof(char) * max);
+	dest = (char *)malloc(sizeof(char) * max + 1);
 	if (!dest)
 		return (NULL);
 	while (i < max)

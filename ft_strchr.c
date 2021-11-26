@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:21:42 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 17:50:50 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/26 21:27:26 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 char	*ft_strchr(const char *string, int searchedChar)
 {
-	int	i;
+	int		i;
+	char	*new;
 
 	i = 0;
+	if (!string)
+		return (0);
 	while (string[i])
 	{
 		if (string[i] == searchedChar)
-			return ((char *)&string[i]);
+		{
+			new = (char *)string + i;
+			return (new);
+		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
