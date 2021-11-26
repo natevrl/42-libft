@@ -32,7 +32,8 @@ SRCS		= ft_calloc.c\
 			  ft_putendl_fd.c\
 			  ft_strcmp.c\
 			  ft_strlen.c\
-			  ft_strtrim.c\    
+			  ft_strtrim.c    
+
 OBJS		= ${SRCS:.c=.o}
 
 NAME		= libft.a
@@ -46,7 +47,7 @@ CFLAGS 		= -Wall -Wextra -Werror
 all:		${NAME} 
 
 .c.o: 
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I includes 
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS} 
@@ -58,5 +59,3 @@ fclean:		clean
 			${RM} ${NAME}
 
 re:			fclean all
-
-make bonus
