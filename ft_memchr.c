@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:18:00 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 17:33:44 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:02:55 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr( const void *memoryBlock, int searchedChar, size_t size )
 {
-	int		i;
+	size_t	i;
 	char	*tmp;
 
 	tmp = (char *)memoryBlock;

@@ -13,7 +13,6 @@ SRCS		= ft_calloc.c\
 			  ft_strncmp.c \
 			  ft_tolower.c\
 			  ft_isalpha.c\
-			  ft_memccpy.c\
 			  ft_memset.c\
 			  ft_split.c\
 			  ft_strlcat.c\

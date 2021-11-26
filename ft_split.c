@@ -6,11 +6,21 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:20:16 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 18:14:21 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:02:14 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ftstrlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 static int	is_in_charset(char c, char *charset)
 {
@@ -64,18 +74,19 @@ char	**ft_split(char const *s, char c)
 	tab_de_tab = malloc(100 * sizeof(char *));
 	if (!tab_de_tab)
 		return (NULL);
-	if (is_in_charset(s[0], c))
+	if (is_in_charset(s[0], &c))
 		tab[1] = -1;
 	while (s[++tab[0]])
 	{
-		if (tab[0] == ft_strlen(s) - 1)
-			tab_de_tab[tab[1]] = ft_cpy(s, tab[0] + 1, tab[2]);
+		if (tab[0] == ftstrlen(s) - 1)
+			tab_de_tab[tab[1]] = ft_cpy((char *)s, tab[0] + 1, tab[2]);
 		tab[3] = 0;
-		if (is_in_charset(s[tab[0]], c))
+		if (is_in_charset(s[tab[0]], &c))
 		{
-			while (is_in_charset(s[++tab[0]], c))
+			while (is_in_charset(s[++tab[0]], &c))
 				tab[3]++;
-			tab_de_tab[tab[1]++] = ft_cpy(s, (tab[0] - 1) - tab[3], tab[2]);
+			tab_de_tab[tab[1]++] = ft_cpy((char *)s,
+					(tab[0] - 1) - tab[3], tab[2]);
 			tab[2] = tab[0]--;
 		}
 	}

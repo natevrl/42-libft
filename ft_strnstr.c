@@ -6,16 +6,16 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:34:19 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 17:57:28 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:16:55 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, int len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	y;
+	size_t	i;
+	size_t	y;
 
 	i = 0;
 	while (big[i] && i != len)
