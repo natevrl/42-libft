@@ -15,19 +15,17 @@
 char	*ft_strchr(const char *string, int searchedChar)
 {
 	int		i;
-	char	*new;
 
 	i = 0;
 	if (!string)
-		return (0);
+		return (NULL);
 	while (string[i])
 	{
 		if (string[i] == searchedChar)
-		{
-			new = (char *)string + i;
-			return (new);
-		}
+			return ((char *)string + i);
 		i++;
 	}
-	return (0);
+	if (string[i] == '\0' && searchedChar == '\0')
+		return ((char *)string + i);
+	return (NULL);
 }

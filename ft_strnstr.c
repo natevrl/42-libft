@@ -17,13 +17,15 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	y;
 
+	if (ft_strlen(little) == 0)
+		return ((char *)big);
 	i = 0;
-	while (big[i] && i != len)
+	while (big[i] && i < len)
 	{
 		if (big[i] == little[0])
 		{
 			y = 0;
-			while (big[i] == little[y] && i != len)
+			while (big[i] == little[y] && i < len)
 			{
 				if (little[y + 1] == '\0')
 					return ((char *)&big[i - y]);
@@ -33,5 +35,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return ("NULL");
+	return (NULL);
 }

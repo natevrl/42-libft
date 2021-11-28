@@ -16,8 +16,10 @@ char	*ft_strrchr(const char *string, int searchedChar)
 {
 	int	max;
 
-	max = ft_strlen(string) - 1;
-	while (string[max])
+	max = ft_strlen(string);
+	if (string[max] == searchedChar)
+		return ((char *)&string[max]);
+	while (max != -1)
 	{
 		if (string[max] == searchedChar)
 			return ((char *)&string[max]);
