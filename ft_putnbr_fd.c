@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:19:58 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 18:34:33 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/29 12:34:55 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		write(fd, "-", 1);
-		return ;
 		n = -n;
 	}
 	if (n > 9)
@@ -32,6 +31,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		ft_putchar_fd(n+48, fd);
+		ft_putchar_fd(n + 48, fd);
 	}
 }
