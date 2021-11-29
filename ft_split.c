@@ -6,90 +6,104 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:20:16 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 19:02:14 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/29 15:38:04 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ftstrlen(const char *s)
+static char	*split_copy(char const *str, int debut, int taille)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-static int	is_in_charset(char c, char *charset)
-{
-	int	i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-static char	*ft_cpy(char *str, int fin, int debut)
-{
-	int		taille;
 	int		i;
 	char	*tab;
 
 	i = 0;
-	taille = fin - debut;
-	tab = malloc(taille * sizeof(char) + 1);
+	tab = malloc(sizeof(char) * taille + 1);
 	if (!tab)
 		return (NULL);
-	while (debut < fin)
+	while (i < taille)
 	{
 		tab[i] = str[debut];
-		debut++;
 		i++;
+		debut++;
 	}
 	tab[i] = '\0';
 	return (tab);
 }
 
-static void	init_var(int *i, int *f, int *charset_end)
+static int	next_c(char const *str, int debut, char c)
 {
-	*i = -1;
-	*f = 0;
-	*charset_end = 0;
+	int	i;
+
+	i = 0;
+	while (str[debut] != c)
+	{
+		i++;
+		debut++;
+	}
+	return (i);
 }
 
-// tab[0] = i, tab[1] = stack, tab[2] = charset_end, tab[3] = j
+static size_t	number_of_tabs(char const *str, char c)
+{
+	size_t	i;
+	size_t	number;
+
+	number = 0;
+	i = 0;
+	while (i < ft_strlen(str))
+	{
+		if (str[i] != c)
+		{
+			i += next_c(str, i, c) - 1;
+			number += 1;
+		}
+		i++;
+	}
+	return (number);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int		tab[4];
+	size_t	i;
+	size_t	f;
 	char	**tab_de_tab;
 
-	init_var(&tab[0], &tab[1], &tab[2]);
-	tab_de_tab = malloc(100 * sizeof(char *));
+	tab_de_tab = malloc(sizeof(char *) * number_of_tabs(s, c) + 1);
 	if (!tab_de_tab)
 		return (NULL);
-	if (is_in_charset(s[0], &c))
-		tab[1] = -1;
-	while (s[++tab[0]])
+	i = 0;
+	f = 0;
+	while (i < ft_strlen(s))
 	{
-		if (tab[0] == ftstrlen(s) - 1)
-			tab_de_tab[tab[1]] = ft_cpy((char *)s, tab[0] + 1, tab[2]);
-		tab[3] = 0;
-		if (is_in_charset(s[tab[0]], &c))
+		if (s[i] != c && s[i] != '\0')
 		{
-			while (is_in_charset(s[++tab[0]], &c))
-				tab[3]++;
-			tab_de_tab[tab[1]++] = ft_cpy((char *)s,
-					(tab[0] - 1) - tab[3], tab[2]);
-			tab[2] = tab[0]--;
+			tab_de_tab[f] = split_copy(s, i, next_c(s, i, c));
+			f++;
+			i += next_c(s, i, c) - 1;
 		}
+		i++;
 	}
-	tab_de_tab[tab[1] + 1] = 0;
+	tab_de_tab[f] = NULL;
 	return (tab_de_tab);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	int i = 0;
+	char str[] = " ";
+
+
+	printf("%ld\n", number_of_tabs(str, ' '));
+	char **tab;
+	tab = ft_split(str, '1');
+	while (tab[i])
+	{
+		printf("tab[%d] : %s\n", i, tab[i]);
+		i++;
+	}
+    printf("%s",tab[i]);
+	return (0);
 }
