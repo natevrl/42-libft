@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:20:16 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/29 15:38:04 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/11/29 17:01:15 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	tab_de_tab[f] = NULL;
+	tab_de_tab[f] = 0;
 	return (tab_de_tab);
 }
 
@@ -93,10 +93,10 @@ char	**ft_split(char const *s, char c)
 int main()
 {
 	int i = 0;
-	char str[] = " ";
+	char str[] = "adwad1adad1ad1aad1";
 
 
-	printf("%ld\n", number_of_tabs(str, ' '));
+	printf("%ld\n", number_of_tabs(str, '1'));
 	char **tab;
 	tab = ft_split(str, '1');
 	while (tab[i])
