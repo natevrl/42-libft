@@ -36,7 +36,7 @@ static int	next_c(char const *str, int debut, char c)
 	int	i;
 
 	i = 0;
-	while (str[debut] != c)
+	while (str[debut] != c && str[debut])
 	{
 		i++;
 		debut++;
@@ -44,14 +44,14 @@ static int	next_c(char const *str, int debut, char c)
 	return (i);
 }
 
-static size_t	number_of_tabs(char const *str, char c)
+static int	number_of_tabs(char const *str, char c)
 {
-	size_t	i;
-	size_t	number;
+	int	i;
+	int	number;
 
 	number = 0;
 	i = 0;
-	while (i < ft_strlen(str))
+	while (str[i])
 	{
 		if (str[i] != c)
 		{
@@ -69,24 +69,25 @@ char	**ft_split(char const *s, char c)
 	size_t	f;
 	char	**tab_de_tab;
 
-	tab_de_tab = malloc(sizeof(char *) * number_of_tabs(s, c) + 1);
+	tab_de_tab = malloc(sizeof(char *) * (number_of_tabs(s, c) + 1));
 	if (!tab_de_tab)
-		return (NULL);
+		return (0);
 	i = 0;
 	f = 0;
 	while (i < ft_strlen(s))
 	{
-		if (s[i] != c && s[i] != '\0')
+		if (s[i] != c)
 		{
 			tab_de_tab[f] = split_copy(s, i, next_c(s, i, c));
-			f++;
 			i += next_c(s, i, c) - 1;
+			f++;
 		}
 		i++;
 	}
 	tab_de_tab[f] = 0;
 	return (tab_de_tab);
 }
+<<<<<<< HEAD
 
 #include <stdio.h>
 
@@ -107,3 +108,5 @@ int main()
     printf("%s",tab[i]);
 	return (0);
 }
+=======
+>>>>>>> 277d864c60d17df09349798e7e2bab29bc7adc03
