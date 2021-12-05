@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:20:16 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/29 17:01:15 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/05 19:00:17 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,17 @@ static int	number_of_tabs(char const *str, char c)
 	return (number);
 }
 
+static char **ft_free(char **str, int index)
+{
+	while (index >= 0)
+	{
+		free(str[index]);
+		index--;
+	}
+	free(str);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -79,6 +90,8 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			tab_de_tab[f] = split_copy(s, i, next_c(s, i, c));
+			if (tab_de_tab[f] == NULL)
+				return (ft_free(tab_de_tab, f - 1));
 			i += next_c(s, i, c) - 1;
 			f++;
 		}
@@ -87,26 +100,3 @@ char	**ft_split(char const *s, char c)
 	tab_de_tab[f] = 0;
 	return (tab_de_tab);
 }
-<<<<<<< HEAD
-
-#include <stdio.h>
-
-int main()
-{
-	int i = 0;
-	char str[] = "adwad1adad1ad1aad1";
-
-
-	printf("%ld\n", number_of_tabs(str, '1'));
-	char **tab;
-	tab = ft_split(str, '1');
-	while (tab[i])
-	{
-		printf("tab[%d] : %s\n", i, tab[i]);
-		i++;
-	}
-    printf("%s",tab[i]);
-	return (0);
-}
-=======
->>>>>>> 277d864c60d17df09349798e7e2bab29bc7adc03

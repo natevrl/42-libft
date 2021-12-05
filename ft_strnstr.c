@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:34:19 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/12/05 17:38:15 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/05 18:28:00 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	y;
 
-	if (ft_strlen(little) == 0)
+	if (little == NULL || ft_strlen(little) == 0)
 		return ((char *)big);
 	i = 0;
 	while (big[i] && i < len)
@@ -38,4 +38,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-

@@ -6,12 +6,11 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:16:52 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/29 13:50:38 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/05 18:50:47 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static int	lenumb(int nbr)
 {
@@ -34,7 +33,7 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return ("0");
 	if (n == -2147483648)
-		return ("-2147483648");
+		return "-2147483648";
 	len = lenumb(n);
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
@@ -54,3 +53,10 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+
+
+int main()
+{
+	printf("%s\n", ft_itoa(-2147483648));
+}
+
