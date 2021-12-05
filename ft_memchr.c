@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:18:00 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 19:02:55 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/05 16:57:08 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ void	*ft_memchr( const void *memoryBlock, int searchedChar, size_t size )
 
 	tmp = (char *)memoryBlock;
 	i = 0;
-	while (i < size && tmp[i])
+	if (size < 1)
+		return (NULL);
+	while (i < size)
 	{
-		if (tmp[i] == searchedChar)
+		if (tmp[i] == (unsigned char)searchedChar)
 			return (&tmp[i]);
 		i++;
 	}

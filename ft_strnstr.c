@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:34:19 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 19:16:55 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/05 17:38:15 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				y++;
 				i++;
 			}
+			i--;
 		}
 		i++;
 	}
 	return (NULL);
 }
+
