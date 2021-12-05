@@ -2,12 +2,19 @@
 
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *newlist;
+	t_list *new;
 
-	newlist = malloc(sizeof(t_list));
-	if (!newlist)
+	new->next = NULL;
+	if (!lst)
 		return (NULL);
-	newlist = ft_lstiter(lst, f(lst->content));
-	return (newlist);
+	while(lst)
+	{
+		new = ft_lstnew(f(lst->content)); 
+		if (!new)
+			ft_lstclear(new);
+		lst = lst->next;
+	}
+
+	return (new);
 
 }

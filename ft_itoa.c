@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:16:52 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/12/05 18:50:47 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:56:18 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*ft_itoa(int n)
 	int		len;
 
 	if (n == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	if (n == -2147483648)
-		return "-2147483648";
+		return (ft_strdup("-2147483648"));
 	len = lenumb(n);
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
@@ -52,11 +52,5 @@ char	*ft_itoa(int n)
 		n /= 10;
 	}
 	return (str);
-}
-
-
-int main()
-{
-	printf("%s\n", ft_itoa(-2147483648));
 }
 

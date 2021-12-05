@@ -31,7 +31,8 @@ SRCS		= ft_calloc.c\
 			  ft_putendl_fd.c\
 			  ft_strcmp.c\
 			  ft_strlen.c\
-			  ft_strtrim.c
+			  ft_strtrim.c\
+			  ft_striteri.c
 
 BONUS		=	ft_lstadd_front.c\
 			ft_lstdelone.c\
