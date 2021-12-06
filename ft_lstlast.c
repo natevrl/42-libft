@@ -2,11 +2,10 @@
 
 t_list *ft_lstlast(t_list *lst)
 {
+	if (!lst)
+		return (NULL);
 	while (lst)
-	{
 		lst = lst->next;
-		if (lst->next == NULL)
-			return (lst);
-	}
-	return (0);
+	return (lst);
+
 }
