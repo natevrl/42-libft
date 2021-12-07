@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:30:16 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/12/07 13:30:19 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/07 17:53:30 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *tmp;
+	t_list	*ptr_on_next;
 
-	tmp = *lst;
-	while(tmp->next != NULL)
+	while(*lst)
 	{
-		del(tmp->content);
-		free(tmp);
-		tmp = tmp->next;
+		ptr_on_next = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = 0;
+		*lst = ptr_on_next;
 	}
+	*lst = 0;
 }

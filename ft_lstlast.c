@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:30:45 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/12/07 13:30:50 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/07 15:12:13 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ t_list *ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-	while (lst)
+	while (lst->next)
 		lst = lst->next;
 	return (lst);
-
 }
