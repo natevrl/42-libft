@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:20:16 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/12/05 19:00:17 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:48:14 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	number_of_tabs(char const *str, char c)
 	return (number);
 }
 
-static char **ft_free(char **str, int index)
+static char	**ft_free(char **str, int index)
 {
 	while (index >= 0)
 	{
@@ -80,6 +80,8 @@ char	**ft_split(char const *s, char c)
 	size_t	f;
 	char	**tab_de_tab;
 
+	if (!s)
+		return (NULL);
 	tab_de_tab = malloc(sizeof(char *) * (number_of_tabs(s, c) + 1));
 	if (!tab_de_tab)
 		return (0);

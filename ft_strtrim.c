@@ -6,7 +6,7 @@
 /*   By: nbenhado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:34:56 by nbenhado          #+#    #+#             */
-/*   Updated: 2021/11/26 18:05:25 by nbenhado         ###   ########.fr       */
+/*   Updated: 2021/12/07 23:25:47 by nbenhado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		y;
 	int		end_of_s1;
+	char	*ret;
 
+	if (!s1)
+		return (NULL);
 	end_of_s1 = ft_strlen(s1) - 1;
 	i = 0;
 	y = 0;
@@ -36,7 +39,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		while (isincharset(s1[i], set))
 			i++;
 	if (isincharset(s1[end_of_s1], set))
-		while (isincharset(s1[end_of_s1--], set))
+		while (isincharset(s1[end_of_s1--], set) && end_of_s1 >= i)
 			y++;
-	return (ft_substr(s1, i, ft_strlen(s1) - y - i));
+	ret = ft_substr(s1, i, ft_strlen(s1) - y - i);
+	if (!ret)
+		return (NULL);
+	return (ret);
 }
