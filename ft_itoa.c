@@ -17,6 +17,10 @@ static int	lenumb(int nbr)
 	int	i;
 
 	i = 0;
+	if (nbr == 0)
+		return (1);
+	if (nbr < 0)
+		i++;
 	while (nbr)
 	{
 		nbr /= 10;
@@ -40,8 +44,6 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (n < 0)
 	{
-		len += 1;
-		str = malloc(sizeof(char) * len + 1);
 		n = -n;
 		str[0] = '-';
 	}
